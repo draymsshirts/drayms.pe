@@ -64,7 +64,6 @@ function finalizarCompra() {
     mensaje += `Talla: ${item.size}\n`;
     mensaje += `Fit: ${item.fit}\n`;
     mensaje += `Precio: ${item.price}\n`;
-    mensaje += `Imagen: ${item.image}\n\n`;
 
     total += price;
   });
