@@ -1,0 +1,303 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+#promo-bar {
+  display: flex;
+  gap: 2.5rem;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilo para el botón de guía de tallas activo */
+.active-guide, .active-size {
+  background-color: white !important;
+  color: black !important;
+  border-color: white !important;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+.active-fit {
+  border-color: white;
+  background: white;
+  color: black !important; /* 🔥 fuerza el color del texto */
+}
+
+.fit-btn {
+  color: white;
+}
+
+.fit-btn.active-fit {
+  color: black !important;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* o right: 20px si lo quieres al otro lado */
+  background-color: #000000;
+  color: rgb(0, 0, 0);
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* CHAT BOX */
+.chat-hidden {
+  display: none;
+}
+
+#chat-box {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 300px;
+  background: #111;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* HEADER */
+.chat-header {
+  background: #075E54;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* BODY */
+.chat-body {
+  padding: 10px;
+}
+
+.chat-body textarea {
+  width: 100%;
+  height: 80px;
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  resize: none;
+  background: #222;
+  color: white;
+}
+
+/* FOOTER */
+.chat-footer {
+  padding: 10px;
+  text-align: right;
+}
+
+.chat-footer button {
+  background: #25D366;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+
+
+/* BOTÓN PRO */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background: #000000;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  animation: pulse 2s infinite;
+  transition: transform 0.2s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* ANIMACIÓN */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(37,211,102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102, 0); }
+}
+
+/* CHAT */
+#chat-box {
+  position: fixed;
+  bottom: 95px;
+  right: 20px;
+  width: 320px;
+  background: #111;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 999;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+#chat-box.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.chat-hidden {
+  display: none;
+}
+
+/* HEADER */
+.chat-header {
+  background: #075E54;
+  padding: 12px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BODY */
+.chat-body {
+  padding: 12px;
+}
+
+.chat-msg {
+  background: #222;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.chat-body textarea {
+  width: 100%;
+  height: 70px;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  resize: none;
+  background: #1a1a1a;
+  color: white;
+}
+
+/* FOOTER */
+.chat-footer {
+  padding: 10px;
+  text-align: right;
+}
+
+.chat-footer button {
+  background: #118a7c;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* FOOTER */
+.footer {
+  background: #0a0a0a;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  margin-top: 25px;
+}
+
+.footer a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  margin-top: 55px;
+  color: #777;
+}
+
+
+
+/* CONTACTO CON ICONOS */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #aaa;
+}
+
+/* ICONOS */
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  display: block;
+}

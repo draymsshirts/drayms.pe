@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/drayms.png" type="img/image.png">
+    <title>DRAYMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="min-h-screen bg-black text-white">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur">
+      <div class="overflow-hidden border-b border-white/10">
+        <div id="promo-bar" class="flex min-w-max gap-10 px-6 py-3 text-xs font-medium uppercase tracking-[0.3em] text-zinc-300"></div>
+      </div>
+
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+        <div>
+          <a href="index.html">
+            <img src="img/drayms.png" alt="DRAYMS" class="h-14 w-auto object-contain hover:opacity-80 transition cursor-pointer">
+          </a>
+        </div>
+
+        <nav class="hidden items-center gap-8 text-sm uppercase tracking-[0.2em] text-zinc-300 md:flex">
+          <a href="#" class="transition hover:text-white">Inicio</a>
+          <a href="#" class="transition hover:text-white">Exclusive</a>
+          <a href="#categorias" class="transition hover:text-white">Prendas</a>
+          <a href="#productos" class="transition hover:text-white">Colección</a>
+        </nav>
+
+<div class="flex items-center gap-3">
+
+<button onclick="abrirBuscador()" class="text-white hover:opacity-70 transition">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       fill="none" 
+       viewBox="0 0 24 24" 
+       stroke="currentColor" 
+       class="w-5 h-5">
+    <path stroke-linecap="round" 
+          stroke-linejoin="round" 
+          stroke-width="2" 
+          d="M21 21l-4.35-4.35m1.85-5.65a7 7 0 11-14 0 7 7 0 0114 0z" />
+  </svg>
+</button>
+
+  <button onclick="window.location.href='cart.html'" class="rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:scale-[1.02]">
+    Carrito (<span id="cart-count">0</span>)
+  </button>
+
+</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="relative isolate overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_38%)]"></div>
+        <div class="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:px-10 lg:py-20">
+          <div class="flex flex-col justify-center">
+            <span class="mb-5 inline-flex w-fit rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.24em] text-zinc-300">
+              Stock limitado
+            </span>
+            <h1 class="max-w-3xl text-5xl font-black uppercase leading-[0.9] tracking-tight sm:text-6xl lg:text-7xl">
+              Chase Dreams in Style⚡
+            </h1>
+            <p class="mt-6 max-w-xl text-base leading-7 text-zinc-400 sm:text-lg">
+              Landing inspirada en una tienda urbana moderna: promo bar, hero editorial, categorías visuales y grilla de productos con estética dark minimal.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <button class="rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-black transition hover:scale-[1.02]">
+                Comprar ahora
+              </button>
+              <button class="rounded-full border border-white/15 px-6 py-3 text-sm uppercase tracking-[0.2em] text-white transition hover:border-white/40">
+                Ver colección
+              </button>
+            </div>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950 sm:col-span-2">
+              <img src="https://instagram.flim33-1.fna.fbcdn.net/v/t51.82787-15/653858982_17854589163631511_5937243472248250360_n.jpg?stp=dst-jpg_e35_p1080x1080_tt6&_nc_cat=104&ig_cache_key=Mzg1NDY3ODQzMjYzNDgwMTY0OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=wHa6taB6YkwQ7kNvwFpOofd&_nc_oc=AdlAcgnI2rthVJX3rZbtSp8QfsIMF-yMUgprpUMV_TfXbVRn0YFU9r73pI4E4565dTw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.flim33-1.fna&_nc_gid=UDuV5A_1YDfa1RTR5KsCPQ&_nc_ss=8&oh=00_AfzAdP663TGSBHtGYCdCNxnF3wQ0czQ9AQk14COMqnv_Ug&oe=69BFE0D8" alt="Editorial streetwear" class="h-[420px] w-full object-cover opacity-85" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <p class="text-xs uppercase tracking-[0.3em] text-zinc-400">New Drop</p>
+                <h2 class="mt-2 text-2xl font-bold uppercase">Drayms Est. 2026</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<section class="w-full py-10 lg:py-16">
+  <div class="relative w-full overflow-hidden">
+    <!-- BANNER -->
+    <img 
+      src="img/cherry.jpg"
+      class="w-full h-[750px] object-cover"
+    />
+
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div class="absolute inset-0 flex flex-col justify-center px-10">
+      <h2 class="text-4xl font-black uppercase">
+        Nueva colección
+      </h2>
+    </div>
+
+  </div>
+</section>
+
+      <section id="productos" class="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-14">
+        <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-zinc-500">Colección destacada</p>
+            <h3 class="mt-2 text-3xl font-black uppercase">Productos</h3>
+          </div>
+          <div class="flex flex-wrap gap-3 text-xs uppercase tracking-[0.2em] text-zinc-400">
+            <button class="rounded-full border border-white bg-white px-4 py-2 text-black transition">Todo</button>
+            <button class="rounded-full border border-white/10 px-4 py-2 transition hover:border-white/30 hover:text-white">Polos</button>
+          </div>
+        </div>
+        <div id="products-grid" class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3"></div>
+      </section>
+    </main>
+
+    <!-- 🔍 SEARCH MODAL -->
+<div id="search-modal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
+  
+  <div class="bg-zinc-900 text-white text-black w-full max-w-2xl rounded-2xl p-6">
+    
+    <input 
+      id="search-modal-input"
+      type="text"
+      placeholder="Buscar..."
+      class="w-full bg-black border border-white/20 text-white px-4 py-3 rounded-lg"  
+    />
+
+    <div id="search-results" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6"></div>
+
+  </div>
+
+</div>
+    <script src="script.js"></script>
+
+<button onclick="abrirChat()" class="whatsapp-float">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-6 h-6 fill-white">
+    <path d="M16 .4C7.3.4.3 7.4.3 16c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.2c2.3 1.3 4.9 2 7.7 2 8.7 0 15.7-7 15.7-15.6S24.7.4 16 .4z"/>
+  </svg>
+</button>
+
+<!-- BOTÓN FLOTANTE -->
+<button onclick="abrirChat()" class="whatsapp-float">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-6 h-6 fill-white">
+    <path d="M16 .4C7.3.4.3 7.4.3 16c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.2c2.3 1.3 4.9 2 7.7 2 8.7 0 15.7-7 15.7-15.6S24.7.4 16 .4zm0 28.7c-2.4 0-4.7-.6-6.8-1.8l-.5-.3-4.9 1.3 1.3-4.7-.3-.5c-1.3-2.2-2-4.6-2-7.1 0-7.5 6.1-13.6 13.6-13.6S29.6 8.5 29.6 16 23.5 29.1 16 29.1z"/>
+  </svg>
+</button>
+
+<!-- CHAT PRO -->
+<div id="chat-box" class="chat-hidden">
+
+  <div class="chat-header">
+    <span>WhatsApp</span>
+    <button onclick="cerrarChat()">✕</button>
+  </div>
+
+  <div class="chat-body">
+    <p class="chat-msg">👋 Hola, ¿en qué podemos ayudarte?</p>
+    <textarea id="mensaje" placeholder="Escribe tu mensaje..."></textarea>
+  </div>
+
+  <div class="chat-footer">
+    <button onclick="enviarWhatsApp()">Enviar</button>
+  </div>
+
+</div>
+
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-col">
+    <h4>CONTACTO</h4>
+    <div class="contact-links">
+
+      
+  <!-- WhatsApp -->
+    <a href="https://wa.me/51907024964" target="_blank" rel="noopener noreferrer" class="contact-item">
+    <svg viewBox="0 0 24 24" class="icon">
+      <path d="M12 2C6.48 2 2 6.26 2 11.5c0 2.04.7 3.92 1.9 5.44L2 22l5.26-1.73C8.74 21.42 10.3 22 12 22c5.52 0 10-4.26 10-9.5S17.52 2 12 2zm0 17c-1.52 0-2.97-.44-4.2-1.2l-.3-.18-3.12 1.02.99-3.03-.2-.31C4.44 14.03 4 12.8 4 11.5 4 7.91 7.58 5 12 5s8 2.91 8 6.5-3.58 6.5-8 6.5zm4.2-4.8c-.23-.11-1.36-.67-1.57-.74-.21-.07-.36-.11-.51.11-.15.23-.59.74-.72.9-.13.15-.26.17-.49.06-.23-.11-.97-.36-1.84-1.14-.68-.61-1.14-1.36-1.27-1.59-.13-.23-.01-.35.1-.46.1-.1.23-.26.34-.39.11-.13.15-.23.23-.38.08-.15.04-.28-.02-.39-.06-.11-.51-1.23-.7-1.68-.19-.45-.38-.39-.51-.4h-.44c-.15 0-.39.06-.6.28-.21.23-.79.77-.79 1.87 0 1.1.81 2.17.92 2.32.11.15 1.58 2.41 3.83 3.38.53.23.95.37 1.28.47.54.17 1.03.15 1.42.09.43-.06 1.36-.56 1.55-1.1.19-.54.19-1 .13-1.1-.06-.11-.21-.17-.44-.28z"/>
+    </svg>
+    WhatsApp
+  </a>
+
+<!-- TikTok -->
+<a href="https://www.tiktok.com/@draymsshirts" target="_blank" rel="noopener noreferrer" class="contact-item">
+  <svg viewBox="0 0 24 24" class="icon">
+    <path d="M12.75 2h2.5c.2 1.6 1.1 3 2.5 3.8 1 .6 2.1.9 3.3.9v2.6c-1.3 0-2.6-.3-3.8-.9-.7-.4-1.3-.9-1.9-1.5v6.5c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.3 0 .6 0 .9.1v2.7c-.3-.1-.6-.2-.9-.2-1.8 0-3.3 1.5-3.3 3.3s1.5 3.3 3.3 3.3 3.3-1.5 3.3-3.3V2z"/>
+  </svg>
+  TikTok
+</a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/drayms.peru/" target="_blank" rel="noopener noreferrer" class="contact-item">
+    <svg viewBox="0 0 24 24" class="icon">
+      <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-2.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+    </svg>
+    Instagram
+  </a>
+
+</div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 DRAYMS</p>
+  </div>
+
+</footer>
+
+  </body>
+</html>

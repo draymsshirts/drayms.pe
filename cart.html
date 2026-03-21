@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/drayms.png" type="image/png">
+    <title>Carrito - DRAYMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-black text-white">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+            <a href="index.html">
+                <img src="img/drayms.png" alt="DRAYMS" class="h-14 w-auto object-contain hover:opacity-80 transition">
+            </a>
+            <h1 class="text-xs uppercase tracking-[0.3em] text-zinc-500">Tu Carrito</h1>
+            <a href="index.html" class="text-xs uppercase tracking-[0.2em] text-zinc-300 hover:text-white transition">Seguir comprando</a>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-4xl px-6 py-10 lg:py-16">
+        <div id="cart-container">
+            <div class="flex flex-col items-center justify-center py-20 text-center">
+                <p class="text-zinc-500 uppercase tracking-widest">Cargando productos...</p>
+            </div>
+        </div>
+
+        <div id="cart-summary" class="mt-10 hidden border-t border-white/10 pt-8">
+            <div class="flex justify-between items-end">
+                <div>
+                    <p class="text-xs uppercase tracking-[0.2em] text-zinc-500">Total estimado</p>
+                    <h2 id="cart-total" class="text-3xl font-black mt-1">S/. 0.00</h2>
+                </div>
+                <button onclick="finalizarCompra()" class="rounded-full bg-white px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-black transition hover:scale-[1.05]">
+                    Finalizar Compra
+                </button>
+            </div>
+            <p class="mt-4 text-xs text-zinc-500 uppercase tracking-tighter">Envío calculado en el siguiente paso.</p>
+        </div>
+    </main>
+
+    <script src="cart.js"></script>
+</body>
+</html>

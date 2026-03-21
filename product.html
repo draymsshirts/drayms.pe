@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/drayms.png" type="image/png">
+    <title>DRAYMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="min-h-screen bg-black text-white">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+        <a href="index.html">
+          <img src="img/drayms.png" alt="DRAYMS" class="h-14 w-auto object-contain hover:opacity-80 transition">
+        </a>
+        <button onclick="window.location.href='cart.html'" class="rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:scale-[1.02]">
+          Carrito (<span id="cart-count">0</span>)
+        </button>
+        <a href="index.html" class="rounded-full border border-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em] text-zinc-300 transition hover:border-white/40 hover:text-white">
+          Volver
+        </a>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-6 py-10 lg:px-10 lg:py-16">
+      <div id="product-detail" class="grid gap-10 lg:grid-cols-2"></div>
+    </main>
+
+    <script src="product.js"></script>
+    
+    <div id="image-modal" onclick="cerrarModalImagen(event)" class="fixed inset-0 bg-black/90 hidden z-50">
+      <div id="image-modal-scroll" class="h-full w-full overflow-auto p-6 cursor-zoom-out">
+        <div id="image-modal-stage" class="min-h-full min-w-full flex items-center justify-center">
+          <img id="modal-img" class="block max-w-none rounded-xl transition-transform duration-200 cursor-zoom-in" style="transform: scale(0.75); transform-origin: center center;" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
