@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Cuenta - DRAYMS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white">
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur">
+      <div class="overflow-hidden border-b border-white/10">
+        <div id="promo-bar" class="flex min-w-max gap-10 px-6 py-3 text-xs font-medium uppercase tracking-[0.3em] text-zinc-300"></div>
+      </div>
+
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+        <div>
+          <a href="index.html">
+            <img src="img/drayms.png" alt="DRAYMS" class="h-14 w-auto object-contain hover:opacity-80 transition cursor-pointer">
+          </a>
+        </div>
+
+        <nav class="hidden items-center gap-8 text-sm uppercase tracking-[0.2em] text-zinc-300 md:flex">
+          <a href="index.html" class="transition hover:text-white">Inicio</a>
+          <a href="index.html#productos" class="transition hover:text-white">Prendas</a>
+        </nav>
+
+<div class="flex items-center gap-3">
+
+<button onclick="abrirBuscador()" class="text-white hover:opacity-70 transition">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       fill="none" 
+       viewBox="0 0 24 24" 
+       stroke="currentColor" 
+       class="w-5 h-5">
+    <path stroke-linecap="round" 
+          stroke-linejoin="round" 
+          stroke-width="2" 
+          d="M21 21l-4.35-4.35m1.85-5.65a7 7 0 11-14 0 7 7 0 0114 0z" />
+  </svg>
+</button>
+
+  <button onclick="window.location.href='cart.html'" class="rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:scale-[1.02]">
+    Carrito (<span id="cart-count">0</span>)
+  </button>
+
+</div>
+        </div>
+      </div>
+    </header>
+
+<div class="max-w-7xl mx-auto p-10 grid md:grid-cols-4 gap-10">
+
+  <!-- 🧭 MENU IZQUIERDO -->
+  <div class="space-y-4">
+
+    <div class="border border-white/10 p-4 rounded-lg cursor-pointer hover:bg-white hover:text-black transition">
+      Mis pedidos
+    </div>
+
+    <div class="border border-white/10 p-4 rounded-lg cursor-pointer hover:bg-white hover:text-black transition">
+      Mis datos
+    </div>
+
+    <div onclick="logout()" class="border border-white/10 p-4 rounded-lg cursor-pointer hover:bg-red-500 transition">
+      Cerrar sesión
+    </div>
+
+  </div>
+
+  <!-- 📄 CONTENIDO -->
+  <div class="md:col-span-3">
+
+    <h2 class="text-2xl font-bold mb-6">Información de la cuenta</h2>
+
+    <!-- DATOS -->
+    <div class="border border-white/10 p-6 rounded-xl">
+
+      <p class="text-sm text-zinc-400 mb-2">Correo</p>
+      <p id="user-email" class="mb-4"></p>
+
+      <p class="text-sm text-zinc-400 mb-2">Nombre</p>
+      <input id="user-name" class="input mb-4" placeholder="Tu nombre">
+
+      <p class="text-sm text-zinc-400 mb-2">DNI</p>
+      <input id="user-dni" class="input mb-4">
+
+      <p class="text-sm text-zinc-400 mb-2">Teléfono</p>
+      <input class="input">
+
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+.input {
+  width: 100%;
+  padding: 12px;
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+}
+</style>
+
+<!-- 🔥 FIREBASE (PRIMERO) -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCR9ZkyT9vs57Ol_oX3nnpMQXuVSB6TG3s",
+    authDomain: "drayms.firebaseapp.com",
+    projectId: "drayms",
+    storageBucket: "drayms.firebasestorage.app",
+    messagingSenderId: "316866170339",
+    appId: "1:316866170339:web:c04774f458db98c28de4d6"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  window.auth = auth;
+  window.db = db;
+</script>
+
+<!-- 🔥 TU SCRIPT (DESPUÉS) -->
+<script type="module" src="account.js"></script>
+
+</body>
+</html>

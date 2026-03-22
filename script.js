@@ -254,3 +254,18 @@ function enviarWhatsApp() {
 
   window.open(url, "_blank");
 }
+
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+window.irCuenta = function () {
+  const user = window.auth.currentUser;
+
+
+  console.log(user);
+
+  if (user) {
+    window.location.href = "account.html";
+  } else {
+    window.location.href = "login.html";
+  }
+};

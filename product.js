@@ -428,6 +428,8 @@ function agregarAlCarrito() {
   });
 
   localStorage.setItem('drayms_cart', JSON.stringify(cart));
+
+  localStorage.setItem('productPage', window.location.href);
   updateCartCounter();
   alert("Producto añadido 🔥");
 }

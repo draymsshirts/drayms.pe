@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - DRAYMS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .input {
+      width: 100%;
+      padding: 12px;
+      background: #0f0f0f;
+      border: 1px solid #2a2a2a;
+      border-radius: 999px;
+      color: white;
+    }
+  </style>
+  
+</head>
+
+<body class="bg-black text-white">
+
+<!-- ✅ HEADER REAL -->
+<header class="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur">
+      <div class="overflow-hidden border-b border-white/10">
+        <div id="promo-bar" class="flex min-w-max gap-10 px-6 py-3 text-xs font-medium uppercase tracking-[0.3em] text-zinc-300"></div>
+      </div>
+
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+        <div>
+          <a href="index.html">
+            <img src="img/drayms.png" alt="DRAYMS" class="h-14 w-auto object-contain hover:opacity-80 transition cursor-pointer">
+          </a>
+        </div>
+
+        <nav class="hidden items-center gap-8 text-sm uppercase tracking-[0.2em] text-zinc-300 md:flex">
+          <a href="#" class="transition hover:text-white">Inicio</a>
+          <a href="#" class="transition hover:text-white">Exclusive</a>
+          <a href="#categorias" class="transition hover:text-white">Prendas</a>
+          <a href="#productos" class="transition hover:text-white">Colección</a>
+        </nav>
+
+<div class="flex items-center gap-3">
+
+<button onclick="abrirBuscador()" class="text-white hover:opacity-70 transition">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       fill="none" 
+       viewBox="0 0 24 24" 
+       stroke="currentColor" 
+       class="w-5 h-5">
+    <path stroke-linecap="round" 
+          stroke-linejoin="round" 
+          stroke-width="2" 
+          d="M21 21l-4.35-4.35m1.85-5.65a7 7 0 11-14 0 7 7 0 0114 0z" />
+  </svg>
+</button>
+
+  <button onclick="window.location.href='cart.html'" class="rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:scale-[1.02]">
+    Carrito (<span id="cart-count">0</span>)
+  </button>
+
+</div>
+        </div>
+      </div>
+    </header>
+
+
+
+
+<div class="flex flex-col items-center justify-center min-h-[80vh]">
+
+  <!-- LOGO -->
+  <img src="img/drayms.png" class="mb-10 w-80 md:w-56 lg:w-80">
+
+  
+  <!-- LOGIN -->
+  <div class="w-full max-w-md p-8 border border-white/10 rounded-2xl bg-[#0a0a0a] text-center">
+
+    <h2 class="text-2xl font-bold mb-6">Iniciar sesión</h2>
+
+    <input id="email" type="email" placeholder="Correo electrónico" class="input mb-4">
+    <input id="password" type="password" placeholder="Contraseña" class="input mb-4">
+
+    <button onclick="login()"
+      class="w-full bg-white text-black py-3 rounded-full font-bold hover:scale-105 transition">
+      Entrar
+    </button>
+
+    <p id="mensaje" class="text-sm text-center mt-4 text-zinc-400"></p>
+
+    <p class="text-xs text-center mt-6 text-zinc-500">
+      ¿No tienes cuenta?
+      <a href="register.html" class="underline">Crear cuenta</a>
+    </p>
+
+  </div>
+
+</div>
+
+</div>
+  <!-- 🔥 FIREBASE (VA PRIMERO) -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCR9ZkyT9vs57Ol_oX3nnpMQXuVSB6TG3s",
+    authDomain: "drayms.firebaseapp.com",
+    projectId: "drayms",
+    storageBucket: "drayms.firebasestorage.app",
+    messagingSenderId: "316866170339",
+    appId: "1:316866170339:web:c04774f458db98c28de4d6"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  window.auth = auth;
+</script>
+
+<!-- 🔥 TU LOGIN -->
+<script type="module" src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro - DRAYMS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .input {
+      width: 100%;
+      padding: 12px;
+      background: #0f0f0f;
+      border: 1px solid #2a2a2a;
+      border-radius: 999px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white">
+
+<!-- ✅ HEADER IGUAL -->
+<header class="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur">
+  <div class="overflow-hidden border-b border-white/10">
+    <div id="promo-bar" class="flex min-w-max gap-10 px-6 py-3 text-xs font-medium uppercase tracking-[0.3em] text-zinc-300"></div>
+  </div>
+
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+    <a href="index.html">
+      <img src="img/drayms.png" class="h-14">
+    </a>
+
+    <button onclick="window.location.href='cart.html'" 
+      class="bg-white text-black px-4 py-2 rounded-full text-xs">
+      Carrito
+    </button>
+  </div>
+</header>
+
+<!-- CONTENIDO -->
+<div class="flex flex-col items-center justify-center min-h-[80vh]">
+
+  <!-- LOGO -->
+  <img src="img/drayms.png" class="mb-10 w-80 md:w-56 lg:w-80">
+
+  <!-- FORM -->
+  <div class="w-full max-w-md p-8 border border-white/10 rounded-2xl bg-[#0a0a0a] text-center">
+
+    <h2 class="text-2xl font-bold mb-6">Crear cuenta</h2>
+
+    <input id="nombre" placeholder="Nombre completo" class="input mb-3">
+    <input id="dni" placeholder="DNI" class="input mb-3">
+    <input id="email" type="email" placeholder="Correo electrónico" class="input mb-3">
+    <input id="password" type="password" placeholder="Contraseña" class="input mb-4">
+
+    <button onclick="register()"
+      class="w-full bg-white text-black py-3 rounded-full font-bold hover:scale-105 transition">
+      Crear cuenta
+    </button>
+
+    <p id="mensaje" class="text-sm text-center mt-4 text-zinc-400"></p>
+
+    <p class="text-xs text-center mt-6 text-zinc-500">
+      ¿Ya tienes cuenta?
+      <a href="login.html" class="underline">Iniciar sesión</a>
+    </p>
+
+  </div>
+</div>
+
+<!-- 🔥 FIREBASE -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"; // 👈 FALTABA
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCR9ZkyT9vs57Ol_oX3nnpMQXuVSB6TG3s",
+    authDomain: "drayms.firebaseapp.com",
+    projectId: "drayms",
+    storageBucket: "drayms.firebasestorage.app",
+    messagingSenderId: "316866170339",
+    appId: "1:316866170339:web:c04774f458db98c28de4d6"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app); // 👈 FALTABA
+
+  window.auth = auth;
+  window.db = db; // 👈 FALTABA
+</script>
+<!-- 🔥 REGISTER JS -->
+<script type="module" src="register.js"></script>
+
+</body>
+</html>

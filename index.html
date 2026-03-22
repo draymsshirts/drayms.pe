@@ -46,6 +46,19 @@
   </svg>
 </button>
 
+<button onclick="irCuenta()" class="text-white hover:opacity-70 transition">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       fill="none" 
+       viewBox="0 0 24 24" 
+       stroke="currentColor" 
+       class="w-5 h-5">
+    <path stroke-linecap="round" 
+          stroke-linejoin="round" 
+          stroke-width="2" 
+          d="M5.121 17.804A9 9 0 1118.879 17.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>
+</button>
+
   <button onclick="window.location.href='cart.html'" class="rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:scale-[1.02]">
     Carrito (<span id="cart-count">0</span>)
   </button>
@@ -143,7 +156,27 @@
   </div>
 
 </div>
-    <script src="script.js"></script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "TU_API_KEY",
+    authDomain: "drayms.firebaseapp.com",
+    projectId: "drayms",
+    storageBucket: "drayms.firebasestorage.app",
+    messagingSenderId: "316866170339",
+    appId: "1:316866170339:web:c04774f458db98c28de4d6"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  window.auth = auth;
+</script>
+
+    <script type="module" src="script.js"></script>
 
 <button onclick="abrirChat()" class="whatsapp-float">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-6 h-6 fill-white">

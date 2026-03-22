@@ -10,15 +10,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="min-h-screen bg-black text-white">
-    <header class="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-            <a href="index.html">
+<header class="border-b border-white/10">
+
+    
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-5">
+
+    <!-- Logo -->
+    <a href="index.html">
                 <img src="img/drayms.png" alt="DRAYMS" class="h-14 w-auto object-contain hover:opacity-80 transition">
-            </a>
-            <h1 class="text-xs uppercase tracking-[0.3em] text-zinc-500">Tu Carrito</h1>
-            <a href="index.html" class="text-xs uppercase tracking-[0.2em] text-zinc-300 hover:text-white transition">Seguir comprando</a>
-        </div>
-    </header>
+    </a>
+    <h1 class="text-xs uppercase tracking-[0.3em] text-zinc-500">Compra Alaraka</h1>
+
+    <!-- Grupo de botones -->
+<div class="flex gap-4">
+  <a href="index.html#productos"
+     class="border border-white/20 px-6 py-2 rounded-full hover:bg-white hover:text-black transition">
+    Seguir comprando
+  </a>
+
+  <a href="#" onclick="volverAlProducto()"
+     class="border border-white/20 px-6 py-2 rounded-full hover:bg-white hover:text-black transition">
+    ← Volver
+  </a>
+</div>
+
+  </div>
+</header>
 
     <main class="mx-auto max-w-4xl px-6 py-10 lg:py-16">
         <div id="cart-container">
@@ -40,6 +57,40 @@
             <p class="mt-4 text-xs text-zinc-500 uppercase tracking-tighter">Envío calculado en el siguiente paso.</p>
         </div>
     </main>
+
+<!-- MODAL CHECKOUT -->
+<div id="checkout-modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+
+  <div class="bg-zinc-900 p-6 rounded-2xl w-full max-w-md">
+
+    <h2 class="text-xl font-bold mb-4">Finalizar compra</h2>
+
+    <input id="nombre" type="text" placeholder="Nombre completo"
+      class="w-full mb-3 px-4 py-2 bg-black border border-white/20 rounded">
+
+    <input id="direccion" type="text" placeholder="Dirección"
+      class="w-full mb-3 px-4 py-2 bg-black border border-white/20 rounded">
+
+    <input id="distrito" type="text" placeholder="Distrito"
+      class="w-full mb-3 px-4 py-2 bg-black border border-white/20 rounded">
+
+    <label class="block mb-2 text-sm">Subir comprobante</label>
+    <input id="comprobante" type="file" accept="image/*"
+      class="w-full mb-4 text-sm">
+
+    <button onclick="confirmarPedido()"
+      class="w-full bg-white text-black py-3 rounded-full font-bold">
+      Confirmar pedido
+    </button>
+
+    <button onclick="cerrarCheckout()"
+      class="w-full mt-2 text-zinc-400 text-sm">
+      Cancelar
+    </button>
+
+  </div>
+
+</div>
 
     <script src="cart.js"></script>
 </body>
