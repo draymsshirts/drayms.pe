@@ -79,43 +79,26 @@ promoBar.innerHTML = [...promoItems, ...promoItems, ...promoItems, ...promoItems
   .map((item) => `<span>${item.label}</span>`)
   .join('');
 
-if (categoriesGrid) {
-  categoriesGrid.innerHTML = categories
+if (productsGrid) {
+  productsGrid.innerHTML = products
     .map(
-      (item) => `
-        <article class="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950">
-          <img src="${item.image}" class="h-80 w-full object-cover" />
-          <div class="absolute bottom-0 p-5">
-            <h4 class="text-lg font-semibold uppercase">${item.name}</h4>
-          </div>
-        </article>
+      (product) => `
+        <a href="product.html?id=${product.id}&img=${product.image}" class="block">
+          <article class="overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950">
+            <div class="relative overflow-hidden">
+              <img src="${product.image}" class="h-[430px] w-full object-cover" />
+            </div>
+            <div class="p-5">
+              <h4 class="text-lg font-semibold uppercase">${product.name}</h4>
+              <span class="text-lg font-bold">${product.price}</span>
+            </div>
+          </article>
+        </a>
       `
     )
     .join('');
 }
 
-/* 🔥 AQUÍ ESTÁ EL CAMBIO */
-productsGrid.innerHTML = products
-  .map(
-    (product) => `
-      <a href="product.html?id=${product.id}&img=${product.image}" class="block">
-        <article class="overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950">
-          <div class="relative overflow-hidden">
-            <img src="${product.image}" alt="${product.name}" class="h-[430px] w-full object-cover transition duration-500 group-hover:scale-105" />
-            <div class="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-black">${product.badge}</div>
-          </div>
-          <div class="p-5">
-            <h4 class="text-lg font-semibold uppercase leading-snug">${product.name}</h4>
-            <div class="mt-3 flex items-center gap-3">
-              <span class="text-lg font-bold">${product.price}</span>
-              <span class="text-sm text-zinc-500 line-through">${product.oldPrice}</span>
-            </div>
-          </div>
-        </article>
-      </a>
-    `
-  )
-  .join('');
 
 updateCartCounter();
 
@@ -255,13 +238,8 @@ function enviarWhatsApp() {
   window.open(url, "_blank");
 }
 
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
 window.irCuenta = function () {
   const user = window.auth.currentUser;
-
-
-  console.log(user);
 
   if (user) {
     window.location.href = "account.html";
@@ -269,3 +247,9 @@ window.irCuenta = function () {
     window.location.href = "login.html";
   }
 };
+
+window.irCuenta = window.irCuenta;
+window.abrirBuscador = abrirBuscador;
+window.abrirChat = abrirChat;
+window.cerrarChat = cerrarChat;
+window.enviarWhatsApp = enviarWhatsApp;
