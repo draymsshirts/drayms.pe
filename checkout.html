@@ -50,18 +50,18 @@
 
     <h2 class="text-xl font-semibold mb-6">Contacto</h2>
 
-    <input placeholder="Email o teléfono"
+    <input id="correo" placeholder="Email o teléfono"
       class="w-full mb-4 px-4 py-3 bg-[#0f0f0f] border border-[#2a2a2a] rounded-lg">
 
     <h2 class="text-xl font-semibold mt-8 mb-6">Entrega</h2>
 
     <div class="grid grid-cols-2 gap-4">
-      <input placeholder="Nombre" class="input">
-      <input placeholder="Apellidos" class="input">
+      <input id="nombre" placeholder="Nombre" class="input">
+      <input id="apellidos" placeholder="Apellidos" class="input">
     </div>
 
-     <input placeholder="DNI" class="input mt-4">
-     <input placeholder="Dirección" class="input mt-4">
+     <input id="dni" placeholder="DNI" class="input mt-4">
+     <input id="direccion" placeholder="Dirección" class="input mt-4">
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
 
@@ -73,7 +73,7 @@
   >
 
   <!-- REGIÓN -->
-  <select class="input">
+  <select id="region" class="input">
     <option value="">Región</option>
     <option>Lima (Metropolitana)</option>
     <option>Lima (Departamento)</option>
@@ -88,6 +88,7 @@
 
   <!-- DISTRITO -->
   <input 
+    id="distrito"
     type="text" 
     placeholder="Distrito"
     class="input uppercase"
@@ -95,7 +96,7 @@
 
 </div>
 
-     <input placeholder="Teléfono" class="input mt-4">
+     <input id="telefono" placeholder="Teléfono" class="input mt-4">
 
 
 <!-- 🚚 MÉTODOS DE ENVÍO -->
@@ -195,11 +196,18 @@
 
       <img src="img/LOGO-NEGRO.jpg" class="w-48 md:w-56 mx-auto mb-4 rounded">
 
-      <input id="comprobante" type="file" class="hidden">
+      
+      <input 
+        id="comprobante" 
+        type="file" 
+        class="hidden"
+        accept="image/*"
+        >
 
       <button onclick="seleccionarImagen()"
         class="w-full border border-white py-3 rounded-full hover:bg-white hover:text-black transition">
         Subir comprobante
+        
       </button>
 
       <p id="file-name" class="text-xs mt-2 text-zinc-500">
@@ -228,7 +236,7 @@
 }
 </style>
 
-<script src="checkout.js"></script>
+<script type="module" src="checkout.js"></script>
 <script>
   const buttons = document.querySelectorAll(".nav-btn");
 
@@ -239,5 +247,29 @@
     });
   });
 </script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCR9ZkyT9vs57Ol_oX3nnpMQXuVSB6TG3s",
+  authDomain: "drayms.firebaseapp.com",
+  projectId: "drayms",
+  storageBucket: "drayms.firebasestorage.app",
+  messagingSenderId: "316866170339",
+  appId: "1:316866170339:web:c04774f458db98c28de4d6"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+window.db = db;
+window.auth = auth;
+</script>
+
 </body>
 </html>
+

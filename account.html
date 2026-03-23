@@ -54,13 +54,16 @@
   <!-- 🧭 MENU IZQUIERDO -->
   <div class="space-y-4">
 
-    <div class="border border-white/10 p-4 rounded-lg cursor-pointer hover:bg-white hover:text-black transition">
-      Mis pedidos
-    </div>
 
-    <div class="border border-white/10 p-4 rounded-lg cursor-pointer hover:bg-white hover:text-black transition">
-      Mis datos
-    </div>
+
+
+     <div onclick="mostrarPedidos()" class="border border-white/10 p-4 rounded-lg cursor-pointer hover:bg-white hover:text-black transition">
+        Mis pedidos
+     </div>
+
+      <div onclick="mostrarDatos()" class="border border-white/10 p-4 rounded-lg cursor-pointer hover:bg-white hover:text-black transition">
+           Mis datos
+      </div>
 
     <div onclick="logout()" class="border border-white/10 p-4 rounded-lg cursor-pointer hover:bg-red-500 transition">
       Cerrar sesión
@@ -69,26 +72,39 @@
   </div>
 
   <!-- 📄 CONTENIDO -->
-  <div class="md:col-span-3">
 
+
+
+
+<div class="md:col-span-3">
+
+  <!-- 🔹 SECCIÓN DATOS -->
+  <div id="seccion-datos">
     <h2 class="text-2xl font-bold mb-6">Información de la cuenta</h2>
 
-    <!-- DATOS -->
     <div class="border border-white/10 p-6 rounded-xl">
-
       <p class="text-sm text-zinc-400 mb-2">Correo</p>
       <p id="user-email" class="mb-4"></p>
 
       <p class="text-sm text-zinc-400 mb-2">Nombre</p>
-      <input id="user-name" class="input mb-4" placeholder="Tu nombre">
+      <input id="user-name" class="input mb-4">
 
       <p class="text-sm text-zinc-400 mb-2">DNI</p>
       <input id="user-dni" class="input mb-4">
 
       <p class="text-sm text-zinc-400 mb-2">Teléfono</p>
       <input class="input">
-
     </div>
+  </div>
+
+  <!-- 🔹 SECCIÓN PEDIDOS -->
+  <div id="seccion-pedidos" class="hidden">
+    <h2 class="text-2xl font-bold mb-6">Mis pedidos</h2>
+
+    <div id="mis-pedidos" class="space-y-4"></div>
+  </div>
+
+</div>
 
   </div>
 
