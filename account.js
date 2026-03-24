@@ -1,7 +1,8 @@
   
   // 1️⃣ IMPORTS (ARRIBA DE TODO)
+  import { doc, getDoc,  collection,  query, where, getDocs, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
   import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-  import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  
 
 
  
@@ -23,7 +24,10 @@
   onAuthStateChanged(auth, async (user) => {
 
     if (user) {
+      
 
+
+      console.log("USER LOGUEADO:", user.uid); // 👈 AQUÍ
       document.getElementById("user-email").textContent = user.email;
 
       const docRef = doc(db, "usuarios", user.uid);
@@ -38,8 +42,11 @@
         document.getElementById("user-telefono").textContent = data.telefono || "";
       }
 
-      cargarPedidos(user);
+      mostrarPedidos(user);
+      await cargarPedidos(user);
       cargarDirecciones(user);
+
+
 
     } else {
       window.location.href = "login.html";
@@ -115,8 +122,13 @@
     );
 
     const snapshot = await getDocs(q);
+    
+    console.log("USER:", user.uid);          // 👈 AQUÍ
+    console.log("ENTRANDO A CARGAR PEDIDOS");
+    console.log("PEDIDOS:", snapshot.size);  // 👈 AQUÍ
 
-    contenedor.innerHTML = "";
+    contenedor.innerHTML = "<h1>Eres un Alarako 🔥</h1>";
+    
 
     snapshot.forEach((doc) => {
       const data = doc.data();
@@ -186,6 +198,7 @@
           `).join("") : ""}
         </div>
 
+      </div>
       </div>
       `;
     });
