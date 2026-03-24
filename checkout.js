@@ -96,20 +96,119 @@ function copiarMonto() {
   document.getElementById("mensaje-copiado").textContent = "Monto copiado ✅";
 }
 
-document.getElementById("mensaje-copiado").textContent = "Monto copiado ✅";
+const mensaje = document.getElementById("mensaje-copiado");
 
-setTimeout(() => {
-  document.getElementById("mensaje-copiado").textContent = "";
-}, 2000);
+if (mensaje) {
+  mensaje.textContent = "Monto copiado ✅";
+
+  setTimeout(() => {
+    mensaje.textContent = "";
+  }, 2000);
+}
+
+import { addDoc, collection, doc, getDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
-import { 
-  addDoc, 
-  collection, 
-  serverTimestamp 
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// 🔥 AQUÍ VA EL PASO 3
+onAuthStateChanged(window.auth, async (user) => {
+  
+
+  if (!user) return;
+
+  const ref = doc(window.db, "usuarios", user.uid);
+  const snap = await getDoc(ref);
+
+  if (!snap.exists()) return;
+
+  const data = snap.data();
+  const direcciones = data.direcciones || [];
+
+
+  // 🔥 NUEVO
+  const dniPerfil = data.dni || "";
+
+     console.log("DATA:", data);
+     console.log("DIRECCIONES:", direcciones); 
+
+
+  const contenedor = document.getElementById("lista-direcciones");
+
+  contenedor.innerHTML = "";
+
+  direcciones.forEach((dir) => {
+
+    const div = document.createElement("div");
+
+    div.className = "border border-white/20 rounded-xl p-4 cursor-pointer hover:border-white transition";
+
+    div.innerHTML = `
+      <div class="flex items-start gap-3">
+
+        <input type="radio" name="direccion" ${dir.principal ? "checked" : ""}>
+
+        <div>
+          <p class="text-sm font-medium">
+            ${dir.nombre} ${dir.apellido}
+          </p>
+
+          <p class="text-xs text-zinc-400">
+            ${dir.direccion}, ${dir.distrito}
+          </p>
+
+          <p class="text-xs text-zinc-500">
+            ${dir.region}
+          </p>
+
+          ${dir.principal ? `<span class="text-xs bg-white text-black px-2 py-1 rounded-full mt-1 inline-block">Predeterminada</span>` : ""}
+        </div>
+
+      </div>
+    `;
+
+    div.addEventListener("click", () => {
+
+      document.getElementById("nombre").value = dir.nombre || "";
+      document.getElementById("apellidos").value = dir.apellido || "";
+      document.getElementById("direccion").value = dir.direccion || "";
+      document.getElementById("distrito").value = dir.distrito || "";
+      document.getElementById("region").value = dir.region || "";
+      document.getElementById("telefono").value = dir.telefono || "";
+
+      document.querySelectorAll('input[name="direccion"]').forEach(r => r.checked = false);
+      div.querySelector("input").checked = true;
+
+    });
+
+    contenedor.appendChild(div);
+
+  });
+  // 🔥 AUTOCARGAR DIRECCIÓN PREDETERMINADA
+const predeterminada = direcciones.find(d => d.principal);
+
+if (predeterminada) {
+  
+  document.getElementById("nombre").value = predeterminada.nombre || "";
+  document.getElementById("apellidos").value = predeterminada.apellido || "";
+  document.getElementById("direccion").value = predeterminada.direccion || "";
+  document.getElementById("distrito").value = predeterminada.distrito || "";
+  document.getElementById("region").value = predeterminada.region || "";
+  document.getElementById("telefono").value = predeterminada.telefono || "";
+
+
+  document.getElementById("dni").value = dniPerfil;
+}
+
+
+});
+
+
+
+
 
 window.confirmarPedido = async function () {
+  console.log("CLICK CONFIRMAR");
 
   const user = window.auth.currentUser;
 
@@ -167,7 +266,7 @@ if (!nombre || !direccion || !distrito) {
   const cart = JSON.parse(localStorage.getItem("drayms_cart") || "[]");
 
   try {
-
+console.log("Archivo:", file);
     // 🔥 1. Subir imagen a Cloudinary
     const imagenComprimida = await comprimirImagen(file);
     // 🔥 VALIDAR DESPUÉS DE COMPRIMIR
@@ -245,3 +344,10 @@ async function comprimirImagen(file) {
     };
   });
 }
+
+
+window.addEventListener("DOMContentLoaded", () => {
+document.getElementById("btn-confirmar").addEventListener("click", () => {
+  console.log("CLICK CONFIRMAR");
+  window.confirmarPedido();});
+});

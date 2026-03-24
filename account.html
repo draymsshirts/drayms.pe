@@ -80,22 +80,63 @@
 
   <!-- 🔹 SECCIÓN DATOS -->
   <div id="seccion-datos">
-    <h2 class="text-2xl font-bold mb-6">Información de la cuenta</h2>
 
+    <div class="flex justify-between items-center mb-6">
+     <h2 class="text-2xl font-bold">Mi Perfil</h2>
+      <button id="btnEditarPerfil" 
+        class="border border-white/20 px-4 py-2 rounded-lg text-sm hover:bg-white hover:text-black transition">
+        Editar
+      </button>
+    </div>
     <div class="border border-white/10 p-6 rounded-xl">
       <p class="text-sm text-zinc-400 mb-2">Correo</p>
       <p id="user-email" class="mb-4"></p>
 
-      <p class="text-sm text-zinc-400 mb-2">Nombre</p>
-      <input id="user-name" class="input mb-4">
+<div class="flex gap-10 mb-4">
+
+  <div>
+    <p class="text-sm text-zinc-400">Nombre</p>
+    <p id="user-name"></p>
+  </div>
+
+  <div>
+    <p class="text-sm text-zinc-400">Apellido</p>
+    <p id="user-apellido"></p>
+  </div>
+
+</div>
+
 
       <p class="text-sm text-zinc-400 mb-2">DNI</p>
-      <input id="user-dni" class="input mb-4">
+      <p id="user-dni" class="mb-4"></p>
 
       <p class="text-sm text-zinc-400 mb-2">Teléfono</p>
-      <input class="input">
+      <p id="user-telefono"></p>
     </div>
+
+
+<!-- 🔹 SECCIÓN editar datos -->
+<div class="border border-white/10 p-6 rounded-xl mt-6">
+
+  <div class="flex justify-between items-center mb-4">
+    <h3 class="text-lg font-semibold">Direcciones</h3>
+
+    <button id="btnAgregarDireccion" 
+      class="border border-white/20 px-3 py-1 rounded-lg text-sm hover:bg-white hover:text-black transition">
+      + Agregar
+    </button>
   </div>
+
+  <div id="lista-direcciones" class="space-y-3 text-sm text-zinc-300">
+    <p class="text-zinc-500">No tienes direcciones aún</p>
+  </div>
+
+</div>
+
+
+
+
+
 
   <!-- 🔹 SECCIÓN PEDIDOS -->
   <div id="seccion-pedidos" class="hidden">
@@ -144,8 +185,134 @@
   window.db = db;
 </script>
 
+
+
+
+
+<div id="modalPerfil" class="fixed inset-0 bg-black/70 hidden justify-center items-center z-50">
+
+  <div class="bg-[#111] border border-white/10 rounded-xl w-full max-w-lg p-6 relative">
+
+    <!-- Cerrar -->
+    <button id="cerrarPerfil" class="absolute top-3 right-3 text-white/60 hover:text-white">✖</button>
+
+    <h2 class="text-xl font-semibold mb-4">Editar perfil</h2>
+
+    <div class="grid gap-4">
+
+      <div class="flex gap-2">
+        <input id="editNombre" placeholder="Nombre" class="input w-full">
+        <input id="editApellido" placeholder="Apellido" class="input w-full">
+      </div>
+
+      <input id="editCorreo" disabled class="input">
+
+      <input id="editDni" placeholder="DNI" class="input">
+      <input id="editTelefono" placeholder="Teléfono" class="input">
+
+      <p class="text-xs text-zinc-500">
+        Este correo se usa para iniciar sesión y actualizar pedidos.
+      </p>
+
+    </div>
+
+    <div class="flex justify-end gap-3 mt-4">
+      <button id="cancelarPerfil" class="text-zinc-400 hover:text-white">Cancelar</button>
+      <button id="guardarPerfil" class="bg-white text-black px-4 py-2 rounded-lg font-semibold">
+        Guardar
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
 <!-- 🔥 TU SCRIPT (DESPUÉS) -->
-<script type="module" src="account.js"></script>
+<div id="modalDireccion" class="fixed inset-0 bg-black/70 hidden justify-center items-center z-50">
+
+  <div class="bg-[#111] border border-white/10 rounded-xl w-full max-w-lg p-6 relative">
+
+    <!-- ❌ botón cerrar -->
+    <button id="cerrarDireccion" class="absolute top-3 right-3 text-white/60 hover:text-white">✖</button>
+
+    <h2 class="text-xl font-semibold mb-4">Agregar dirección</h2>
+
+
+
+
+
+
+
+<div class="grid gap-4">
+
+  <!-- Nombre + Apellido -->
+  <div class="flex gap-4">
+    <input id="dirNombre" placeholder="Nombre" class="input w-full">
+    <input id="dirApellido" placeholder="Apellido" class="input w-full">
+  </div>
+
+  <!-- Dirección -->
+  <input id="dirDireccion" placeholder="Dirección" class="input">
+
+  <!-- Referencia -->
+  <input id="dirReferencia" placeholder="Apartamento, referencia, etc. (opcional)" class="input">
+
+  <!-- Ciudad + Región + Distrito -->
+  <div class="flex gap-4">
+    <input id="dirCiudad" placeholder="Ciudad" class="input w-full">
+
+    <select id="dirRegion" class="input w-full">
+      <option value="">Región</option>
+      <option>Lima</option>
+      <option>Arequipa</option>
+      <option>Cusco</option>
+      <option>La Libertad</option>
+      <option>Piura</option>
+    </select>
+
+    <input id="dirDistrito" placeholder="Distrito" class="input w-full">
+  </div>
+
+  <!-- Teléfono -->
+  <input id="dirTelefono" placeholder="Teléfono" class="input">
+
+<div class="flex justify-between items-center mt-4">
+
+
+
+<!-- predeterminada -->
+           <button id="hacerPrincipal" 
+              class="text-yellow-400 hover:text-yellow-300 text-sm hidden">
+               ⭐ Hacer principal
+           </button>
+  
+  <!-- 🗑️ ELIMINAR -->
+  <button id="eliminarDireccion" 
+    class="text-red-500 hover:text-red-400 text-sm hidden">
+    Eliminar
+  </button>
+
+  <!-- DERECHA -->
+  <div class="flex gap-4">
+    <button id="cancelarDireccion" class="text-zinc-400 hover:text-white">
+      Cancelar
+    </button>
+
+    <button id="guardarDireccion" class="bg-white text-black px-4 py-2 rounded-lg font-semibold">
+      Guardar
+    </button>
+  </div>
+
+</div>
+</div>
+
+</div><script type="module" src="account.js"></script>
+
 
 </body>
 </html>

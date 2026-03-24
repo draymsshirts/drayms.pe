@@ -54,6 +54,8 @@
       class="w-full mb-4 px-4 py-3 bg-[#0f0f0f] border border-[#2a2a2a] rounded-lg">
 
     <h2 class="text-xl font-semibold mt-8 mb-6">Entrega</h2>
+    <!-- 📍 DIRECCIONES GUARDADAS -->
+<div id="lista-direcciones" class="mb-6 space-y-3"></div>
 
     <div class="grid grid-cols-2 gap-4">
       <input id="nombre" placeholder="Nombre" class="input">
@@ -167,8 +169,9 @@
            class="w-full mt-3 border border-white py-1 rounded-full hover:bg-white hover:text-black transition text-sm">
             Copiar monto
           </button>
-<p id="mensaje-copiado" class="text-xs mt-2 text-zinc-500 text-center"></p>
-<!-- 🎟️ CÓDIGO DE DESCUENTO -->
+           <p id="mensaje-copiado" class="text-xs mt-2 text-zinc-500 text-center"></p>
+              <!-- 🎟️ CÓDIGO DE DESCUENTO -->
+          
 <div class="mt-6">
 
   <div class="flex gap-2">
@@ -217,8 +220,7 @@
     </div>
 
     <!-- BOTÓN FINAL -->
-    <button onclick="confirmarPedido()"
-      class="w-full mt-6 bg-white text-black py-4 rounded-full font-bold hover:scale-105 transition">
+    <button id="btn-confirmar" class="w-full mt-6 bg-white text-black py-4 rounded-full font-bold">
       Confirmar pedido
     </button>
 
@@ -236,7 +238,6 @@
 }
 </style>
 
-<script type="module" src="checkout.js"></script>
 <script>
   const buttons = document.querySelectorAll(".nav-btn");
 
@@ -269,7 +270,7 @@ const db = getFirestore(app);
 window.db = db;
 window.auth = auth;
 </script>
-
+<script type="module" src="checkout.js"></script>
 </body>
 </html>
 

@@ -1,7 +1,18 @@
-import { 
-  signInWithEmailAndPassword, 
+import {  signInWithEmailAndPassword, 
   createUserWithEmailAndPassword 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+// 🔥 SI YA ESTÁ LOGUEADO → LO MANDO A SU CUENTA
+onAuthStateChanged(window.auth, (user) => {
+  if (user) {
+    window.location.href = "account.html";
+  }
+});
+
+
 
 // 🔐 LOGIN REAL
 window.login = async function () {
